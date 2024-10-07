@@ -4,21 +4,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Work</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header>
-        <h3>MySite</h3>
+        <h1>MySite</h1>
         <ul class="navBar">
             <li><a href="">Home</a></li>
             <li><a href="">Contact</a></li>
-            <li><a href="">Services</a></li>
+            <li id="Services">
+                <a>Services</a>
+                <div class="dropdown-content">
+                    <a href="">Link 1</a>
+                    <a href="">Link 2</a>
+                    <a href="">Link 3</a>
+                </div>
+            </li>
         </ul>
+
+        <div class="mobileNav">
+            <div class="mobileLinks">
+                <a href="">Home</a>
+                <a href="">Contact</a>
+                <a href="">Services</a>
+            </div>
+            <a class="icon">
+                <i class="fa fa-bars"></i>
+            </a>
+        </div>
     </header>
     <main>
+        <ul class="cardGrid">
+            <li class="Card">
+                <h4>Keyboard</h4>
+                <p>This is a keyboard</p>
+                <img src="Images/keyboard.png" alt="image1">
+                <button class="LearnMore">Learn more</button>
+            </li>
+            <li class="Card">
+                <h4>Mouse</h4>
+                <p>This is a mouse</p>
+                <img src="Images/mouse.jpg" alt="image2">
+                <button class="LearnMore">Learn more</button>
+            </li>
+            <li class="Card">
+                <h4>Monitor</h4>
+                <p>This is a monitor</p>
+                <img src="Images/monitor.png" alt="image3">
+                <button class="LearnMore">Learn more</button>
+            </li>
+        </ul>
 
+        <div id="Modal">
+            <div>
+                <h2>Title</h2>
+                <p>Description</p>
+                <button id="CloseModal">CLOSE</button>
+            </div>
+        </div>
     </main>
     <footer>
 
     </footer>
+    <script src="index.js"></script>
 </body>
 </html>
