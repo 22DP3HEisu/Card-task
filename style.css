@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+header{
+    background-color: brown;
+    display: flex;
+    justify-content: space-between;
+    height: 60px;
+}
+
+h3{
+    color: white;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    font-size: 40px;
+}
+
+/* Navigation */
+
+.navBar{
+    height: 100%;
+    display: flex;
+}
+
+.navBar li{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+}
+
+.navBar a{
+    color: white;
+    display: flex;
+    height: 100%;
+    padding: 0 20px;
+    align-items: center;
+    transition: background-color 0.2s;
+}
+
+.navBar a:link{
+    text-decoration: none;
+}
+
+.navBar a:hover{
+    background-color: gray;
+}
