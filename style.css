@@ -55,18 +55,32 @@ header h1{
 
 /* Mobile Navigation */
 
+.mobileNav{
+    margin-left: auto;
+}
+
+.mobileNav .icon{
+    display: block;
+    background-color: transparent;
+    border: 0;
+    font-size: 20px;
+    color: white;
+    height: 100%;
+}
+
+.mobileLinks{
+    position: absolute;
+    display: none;
+}
+
 @media (max-width: 768px) {
     .navBar{
         display: none;
     }
 
-    .mobileNav{
+    .mobileNav .icon{
         display: block;
     }
-}
-
-.mobileNav{
-    display: none;
 }
 
 /* Dropdown */
