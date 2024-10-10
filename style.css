@@ -1,23 +1,60 @@
+:root{
+    --primary-color: #a52a2a;
+    --secondary-color: #ffffff;
+    --third-color: #008000;
+    --card-background: #faebd7;
+    --nav-hover: #808080;
+    --dropdown-color: #872424;
+
+    /* dark mode */
+    --dark-primary-color: #4a1874;
+    --dark-secondary-color: #111;
+    --dark-dropdown-color: #3a135a;
+    --dark-card-background: #213247;
+}
+
 *{
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+#page-container{
+    position: relative;
+    min-height: 100vh;
+}
+
+body{
+    background-color: var(--secondary-color);
+}
+
 header{
-    background-color: brown;
+    background-color: var(--primary-color);
     display: flex;
     align-items: center;
     height: 60px;
 }
 
 header h1{
-    color: white;
+    color: var(--secondary-color);
     height: 100%;
     display: flex;
     align-items: center;
     font-size: 40px;
     padding: 0 20px;
+}
+
+/* General elements */
+
+button{
+    background: linear-gradient(to right bottom, var(--primary-color) 50%, var(--third-color) 50%);
+    background-size: 200% 200%;
+    background-position: left top;
+    color: var(--secondary-color);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /* Navigation */
@@ -37,7 +74,7 @@ header h1{
 }
 
 .navBar a{
-    color: white;
+    color: var(--secondary-color);
     display: flex;
     height: 100%;
     padding: 0 20px;
@@ -50,59 +87,60 @@ header h1{
 }
 
 .navBar li:hover{
-    background-color: gray;
+    background-color: var(--nav-hover);
+}
+
+/* General dropdown settings */
+
+.dropdown-content{
+    display: none;
+    position: absolute;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    background: linear-gradient(to left, var(--dropdown-color) 50%, var(--third-color) 50%);
+    background-size: 200% 100%;
+    background-position: right;
+    color: var(--secondary-color);
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
 }
 
 /* Mobile Navigation */
 
 .mobileNav{
+    display: none;
     margin-left: auto;
 }
 
-.mobileNav .icon{
+.mobileNav #mobileDropBtn{
     display: block;
     background-color: transparent;
     border: 0;
     font-size: 20px;
-    color: white;
+    color: var(--secondary-color);
     height: 100%;
+    padding: 0 20px;
 }
 
-.mobileLinks{
-    position: absolute;
-    display: none;
+.mobileNav .dropdown-content{
+    left: 0;
+    width: 100%;
+    border-top: 1px solid var(--secondary-color);
 }
 
-@media (max-width: 768px) {
-    .navBar{
-        display: none;
-    }
-
-    .mobileNav .icon{
-        display: block;
-    }
-}
-
-/* Dropdown */
+/* Services dropdown */
 
 #Services{
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content{
-    display: none;
-    position: absolute;
-    background-color: brown;
-    min-width: 160px;
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: white;
-    padding: 12px 16px;
-    text-decoration: none;
     display: block;
+    position: relative;
+}
+
+#Services .dropdown-content{
+    left: 0;
+    width: 100%;    
 }
 
 #Services:hover .dropdown-content{
@@ -120,7 +158,7 @@ main{
 
 .cardGrid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 20px;
     padding: 20px;
 }
@@ -128,7 +166,7 @@ main{
 .cardGrid li{
     display: flex;
     flex-direction:column;
-    background-color:antiquewhite;
+    background-color: var(--card-background);
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -142,6 +180,16 @@ main{
     transform: translateY(-10px);
 }
 
+.cardGrid h4{
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.cardGrid p{
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
 .cardGrid img{
     width: 100%;
     height: auto;
@@ -151,27 +199,8 @@ main{
 }
 
 .cardGrid button{
-    background: linear-gradient(to right, brown, green);
-    background-size: 600% 600%;
-    color: white;
-    border: none;
-    padding: 10px 20px;
     margin-top: auto;
-    border-radius: 5px;
-    cursor: pointer;
     align-self:center;
-}
-
-@keyframes example{
-    100%{
-        background-position: 100% 50%;
-    }
-}
-
-.cardGrid button:hover, #Modal button:hover{
-    animation-name: example;
-    animation-duration: 1s;
-    animation-fill-mode: forwards;
 }
 
 /* Modal */
@@ -189,8 +218,8 @@ main{
 }
 
 #Modal div{
-    background-color: white;
-    border: 1px solid #888;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--nav-hover);
     width: 60%;
     margin: 15% auto;
     padding: 10px;
@@ -201,13 +230,153 @@ main{
 }
 
 #Modal button{
-    background: linear-gradient(to right, brown, green);
-    background-size: 600% 600%;
-    color: white;
-    border: none;
-    padding: 10px 20px;
     margin-top: 10px;
-    border-radius: 5px;
+}
+
+/* Footer */
+
+#content-wrap{
+    padding-bottom: 60px;
+}
+
+footer{
+    position: absolute;
+    background-color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60px;
+    width: 100%;
+    bottom: 0;
+}
+
+footer p{
+    color: var(--secondary-color);
+    font-size: 20px;
+    padding: 0 20px;
+}
+
+/* Slider */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
     cursor: pointer;
-    transition: background-image 0.2s;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Dark mode */
+
+.dark-mode{
+    background-color: var(--dark-secondary-color);
+}
+
+.dark-mode header{
+    background-color: var(--dark-primary-color);
+}
+
+.dark-mode footer{
+    background-color: var(--dark-primary-color);
+}
+
+.dark-mode button{
+    background: linear-gradient(to right bottom, var(--dark-primary-color) 50%, var(--third-color) 50%);
+    background-size: 200% 200%;
+    background-position: left top;
+}
+
+.dark-mode .dropdown-content a{
+    background: linear-gradient(to left, var(--dark-dropdown-color) 50%, var(--third-color) 50%);
+    background-size: 200% 100%;
+    background-position: right;
+}
+
+.dark-mode .cardGrid li{
+    background-color: var(--dark-card-background);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    color: var(--secondary-color);
+}
+
+.dark-mode #Modal div{
+    background-color: var(--dark-secondary-color);
+    color: var(--secondary-color);
+    border: 1px solid var(--dark-dropdown-color);
+}
+
+/* Animation */
+
+@keyframes defaultButton{
+    100%{
+        background-position: right bottom;
+    }
+}
+
+@keyframes dropDownButtons{
+    100%{
+        background-position: left;
+    }
+}
+
+.cardGrid button:hover, #Modal button:hover{
+    animation: defaultButton .5s forwards;
+}
+
+.dropdown-content a:hover{
+    animation: dropDownButtons .5s forwards;
+}
+
+/* Other */
+
+@media (max-width: 768px) {
+    .navBar{
+        display: none;
+    }
+
+    .mobileNav{
+        display: block;
+    }
 }
